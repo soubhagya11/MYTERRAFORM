@@ -1,0 +1,47 @@
+#THIS IS MAIN.TF DATA WITH VARIABALE
+
+
+resource "aws_instance" "demo" {
+    ami = var.ami
+    instance_type = var.instance_type
+    key_name = var.key_name
+    tags = { 
+        Name = "my-ec2"
+      
+    }
+}
+
+
+
+#THIS IS VARIABLE CODES FOR MAIN.TF
+
+variable "ami" {
+    description = "ami for main file"
+    type = string
+    default = ""
+
+
+}
+
+variable "instance_type" {
+    description = "instance type fro main file"
+    type = string
+    default = ""
+
+}
+
+variable "key_name" {
+    description = "keypair name for main file"
+    type = string
+    default = ""
+
+}
+
+
+#THIS IS TERRAFORM.TFVARS DATA FOR VARIABLE FILE
+ami = "ami-04629cfb3bd2d73f3"
+instance_type = "t2.micro"
+key_name = "linux-kp"
+
+
+

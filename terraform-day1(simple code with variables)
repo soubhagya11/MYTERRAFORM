@@ -42,6 +42,3 @@ variable "key_name" {
 ami = "ami-04629cfb3bd2d73f3"
 instance_type = "t2.micro"
 key_name = "linux-kp"
-
-
-

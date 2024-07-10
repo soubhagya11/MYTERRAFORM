@@ -1,0 +1,22 @@
+#CODE FOR DATA SOURCE(VPC-SUBNET)
+
+data "aws_subnet" "test" {
+  id = (mention your subnet-id)
+}
+
+#HOW TO CALL SUBNET
+
+resource "aws_instance" "my-cust-p-ec2" {
+    ami = "ami-04629cfb3bd2d73f3"
+    instance_type = "t2.micro"
+    key_name = "linux-kp"
+    subnet_id = data.aws_subnet.test.id
+    security_groups = [ aws_security_group.my-sg.id ]
+    tags = {
+      Name = "my-cust-pvtsub-ec2"
+    }
+  
+}
+
+
+terraform import aws_instance.dev (instance id of your running ec2)

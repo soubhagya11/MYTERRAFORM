@@ -1,0 +1,70 @@
+#MODULES
+----------------------------------
+
+#FIRST WRITE YOUR TEMPLATE
+----------------------------------
+EX-(main.tf)
+----------
+resource "aws_instance" "my-ec2" {
+    ami = var.ami
+    instance_type = var.instance_type
+    key_name = var.key_name
+    subnet_id = var.subnet_id
+    tags = {
+      Name = var.Name
+    }
+  
+}
+
+#variable.tf
+--------------
+variable "ami" {
+    description = "passing value to main.tf"
+    type = string
+    default = ""
+  
+}
+
+variable "instance_type" {
+    description = "passing value to main.tf "
+    type = string
+    default = ""
+  
+}
+
+variable "key_name" {
+   description = "passing value to main.tf"
+   type = string
+   default = ""
+  
+}
+
+variable "subnet_id" {
+    description = "passing value to main.tf"
+    type = string
+    default = ""
+  
+}
+
+variable "Name" {
+    description = "passing value to main.tf"
+    type = string
+    default = ""
+  
+}
+
+
+#ABOVE ONE IS TEMPLATE BY USING OF MODULE WE ARE GOING TO CALL THIS TEMPLATE
+-----------------------------------------------------------------------------
+TAKE AN ANOTHER FOLDER AND CALL UR TEMPLATE BY CODES
+----------------------------------------------------
+
+module "test" {
+    source = "./root"
+    ami = "ami-0ec0e125bb6c6e8ec"
+    instance_type = "t2.micro"
+    key_name = "linux-kp"
+    subnet_id = "subnet-080fdad102230c6b2"
+    Name = "module-ec2"
+  
+}

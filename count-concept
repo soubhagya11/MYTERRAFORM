@@ -1,4 +1,5 @@
-#example1:without list varaible 
+#example1:without list varaible
+---------------------------------
 
  resource "aws_instance" "myec2" {
      ami = "ami-0230bd60aa48260c6"
@@ -11,6 +12,7 @@
 
 
 #WITH VARIABLES
+---------------------
 
 variable "ami" {
   type    = string

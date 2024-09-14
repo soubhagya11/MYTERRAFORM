@@ -15,3 +15,6 @@ resource "aws_s3_bucket" "test" {
 #IF YOU HAVE MULTIPLE RESOURCE AND YOU HAVE TO TARGET ONE RESOURCE ONLY COMMAND
   terraform apply -target aws_s3_bucket.mys3
   terraform destroy -target aws_s3_bucket.mys3
+
+#------------TERRAFORM IMPORT-------------#
+terraform import aws_instance.prod <give running instance unique id>
